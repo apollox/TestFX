@@ -86,6 +86,7 @@ public class ApplicationExtension extends FxRobot implements BeforeEachCallback,
 
     @Override
     public void afterEach(ExtensionContext context) throws Exception {
+        FxToolkit.cleanupStages();
         FxToolkit.cleanupApplication(new ApplicationAdapter(applicationFixture));
         // Cleaning the remaining UI events (e.g. a mouse press that is still waiting for a mouse release)
         // Not cleaning these events may have side-effects on the next UI tests
